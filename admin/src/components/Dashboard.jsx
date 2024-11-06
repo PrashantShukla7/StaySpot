@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
+import {AuthContext} from '../context/AuthContext'
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
     document.title = "StaySpot | Dashboard";
@@ -9,6 +11,9 @@ const Dashboard = () => {
     const hotels = data.length;
     var { data } = useFetch("http://localhost:3000/api/room");
     const rooms = data.length;
+    const navigate = useNavigate();
+    const {user} = useContext(AuthContext);
+    if(!user) navigate('/login');
     return (
         <>
             {error && <p className="text-red-600 font-semibold text-center">{error.response.data.message}</p>}
