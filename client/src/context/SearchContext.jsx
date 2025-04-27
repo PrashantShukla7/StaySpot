@@ -8,7 +8,6 @@ const initialState = {
 
 export const SearchContext = createContext(initialState)
 
-console.log('search context rendering')
 
 const searchReducer = (state, action) => {
     switch (action.type) {

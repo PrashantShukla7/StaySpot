@@ -31,7 +31,7 @@ const NewHotel = () => {
                     data.append("upload_preset", "uploads");
 
                     const uploadRes = await axios.post(
-                        "https://api.cloudinary.com/v1_1/dwimsjcof/image/upload",
+                        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
                         data,
                         {
                             headers: {
@@ -71,7 +71,7 @@ const NewHotel = () => {
     return (
         <div>
             <h1 className="text-zinc-300 font-bold text-3xl px-5 py-3">
-                Add Room
+                Add Hotel
             </h1>
 
             <form

@@ -18,7 +18,7 @@ const Signup = () => {
         e.preventDefault();
         setCredentials(prev => ({...prev, [e.target.id]: e.target.value}))
         try {
-            const res = await axios.post('http://localhost:3000/api/auth/register', credentials)
+            const res = await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/auth/register', credentials)
             navigate('/')            
         } catch (error) {
             setError(error.response?.data?.message || "Something went wrong")

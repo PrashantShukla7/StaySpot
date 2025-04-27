@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ hotelid, setOpenReserve, totalAmount }) => {
     const { data, loading } = useFetch(
-        `http://localhost:3000/api/hotel/rooms/${hotelid}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel/rooms/${hotelid}`
     );
     const [selectedRooms, setSelectedRooms] = useState([]);
     const { user } = useContext(AuthContext);
@@ -60,7 +60,7 @@ const Reserve = ({ hotelid, setOpenReserve, totalAmount }) => {
             await Promise.all(
                 selectedRooms.map((roomId) => {
                     const res = axios.put(
-                        `http://localhost:3000/api/room/availability/${roomId}`,
+                        `${import.meta.env.VITE_BACKEND_URL}/api/room/availability/${roomId}`,
                         { dates: allDates }
                     );
                     return res.data;

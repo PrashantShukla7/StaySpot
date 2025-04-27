@@ -13,7 +13,7 @@ const Search = () => {
     const [min, setMin] = useState(0)
     const [max, setMax] = useState(9999)
     const { data, loading, error, reFetch } = useFetch(
-        `http://localhost:3000/api/hotel?city=${destination}&min=${min || 0}&max=${max || 99999}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel?city=${destination}&min=${min || 0}&max=${max || 99999}`
     );
 
     const handleClick = () => {

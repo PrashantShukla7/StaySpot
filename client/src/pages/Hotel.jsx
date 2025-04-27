@@ -12,7 +12,7 @@ const Hotel = () => {
     const [openReserve, setOpenReserve] = useState(false);
 
     const { data, loading } = useFetch(
-        `http://localhost:3000/api/hotel/find/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel/find/${id}`
     );
 
 

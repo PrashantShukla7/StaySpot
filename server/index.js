@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: ['https://k0ph98fj-5173.inc1.devtunnels.ms', 'http://localhost:8000', 'http://localhost:5173', 'https://api.cloudinary.com/v1_1/dwimsjcof/image/uploads'], // or use '*' to allow all origins
+        origin: ['https://k0ph98fj-5173.inc1.devtunnels.ms', 'http://localhost:8000', process.env.FRONTEND_URL, 'https://api.cloudinary.com/v1_1/dwimsjcof/image/uploads'], // or use '*' to allow all origins
         methods: ["GET", "POST", "PUT", "DELETE", 'OPTIONS'],
         allowedHeaders: [
             "Content-Type",
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const connectMongo = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/hotel");
+        await mongoose.connect(process.env.MONGO_URI);
         console.log("mongodb connected");
     } catch (error) {
         throw error;

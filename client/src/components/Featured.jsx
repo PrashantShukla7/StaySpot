@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 
 const Featured = () => {
     const { data, loading, error } = useFetch(
-        "http://localhost:3000/api/hotel?featured=true"
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel?featured=true`
     );
 
     return (

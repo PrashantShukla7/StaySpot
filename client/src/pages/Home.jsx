@@ -23,7 +23,7 @@ const Home = () => {
     const [open, setOpen] = useState(false);
 
     const { data, loading } = useFetch(
-        "http://localhost:3000/api/hotel/countbycity?cities=mumbai,delhi,lucknow"
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel/countbycity?cities=mumbai,delhi,lucknow`
     );
 
 

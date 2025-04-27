@@ -6,8 +6,6 @@ const initialState = {
     error: null,
 };
 
-console.log('auth context rendering')
-
 export const AuthContext = createContext(initialState);
 
 const authReducer = (state, action) => {

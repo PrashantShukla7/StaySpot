@@ -7,7 +7,7 @@ const SearchList = () => {
     const [destination, setDestination] = useState(location.state.destination);
     const [rooms, setrooms] = useState(location.state.rooms);
     const { data, loading } = useFetch(
-        `http://localhost:3000/api/hotel?city=${destination}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel?city=${destination}`
     );
 
     return (

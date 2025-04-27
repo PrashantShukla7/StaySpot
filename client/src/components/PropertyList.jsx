@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 
 const PropertyList = () => {
     const { data, loading, error } = useFetch(
-        "http://localhost:3000/api/hotel/countbytype"
+        `${import.meta.env.VITE_BACKEND_URL}/api/hotel/countbytype`
     );
     const images = [
         "https://images.unsplash.com/photo-1517840901100-8179e982acb7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
